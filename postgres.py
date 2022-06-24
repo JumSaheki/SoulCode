@@ -1,3 +1,8 @@
+'''
+Algoritmo criado pelo professor Felipe.
+A classe Conector_postgres possui métodos para criar e manipular dados em bancos de dados PostgreSQL
+'''
+
 import psycopg2
 
 class Conector_postgres:
