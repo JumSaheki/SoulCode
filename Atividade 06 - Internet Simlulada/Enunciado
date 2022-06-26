@@ -1,0 +1,10 @@
+Envie um arquivo .pkt e prints apresentando uma estrutura de redes que possua:
+
+-pelo menos 2 redes interligadas por pelo menos 1 roteador
+-ao menos 1 servidor DHCP
+-no mínimo 1 servidor DNS
+-ao menos 1 site http/https, acesivel pelo seu nome
+-um dos computadores de uma rede fora da rede do site deve conseguir acessá-lo
+
+desafio:
+-pelo menos 3 redes locais (classe C) com uma rede interligando os roteadores (classe B)
