@@ -1,5 +1,6 @@
 Enunciado:
 
-Deve ser enviado o arquivo .pkt e um print de uma rede cuja forma escreva o nome do aluno que a gerou, mostrando o ping do primeiro ao ultimo elemento, conforme exemplo na figura, além disso deve ser possível utilizar o comando PING entre a primeira e a ultima maquinas.
+Utilizando o programa Cisco Packet Tracer criar uma rede com formato do nome do aluno.
+Mostrar que é possível fazer um ping do primeiro ao último elemento da rede.
 
-- Exercício realizado utilizando o programa Cisco Packet Tracer
+
