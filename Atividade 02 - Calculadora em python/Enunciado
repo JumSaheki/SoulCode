@@ -1,5 +1,7 @@
-Enunciado;
+Enunciado:
 
-#TODO: completar calculadora, minimo 4 operacoes basicas, raiz e potencia
-#TODO: desafio, calculadora cientifica
-#TODO: desafio2, sem usar modulos
+Fazer uma calculadora que tenha as 4 operações básicas, raiz quadrada e potenciação.
+
+Como desafio tentar criar uma calculadora científica.
+
+Últimmo desafio é criar a calculadora científica sem usar módulos
