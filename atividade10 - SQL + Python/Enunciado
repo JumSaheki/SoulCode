@@ -1,0 +1,13 @@
+Crie tabelas em banco de dados postgreSQL com o seguinte esquema relacional:
+- Fornecedor (idfornecedor, nome, cnpj)
+- Produto (idproduto, idfornecedor, descricao, preco, quantEstoque)
+- Vendedor (idvendedor, nome, cpf, endereco, telefone)
+- Vendas (idvenda, idproduto, idvendedor, valorTotal, comissão)
+
+
+Realize, via Python, pelo menos 50 vendas e responda:
+- o total de vendas
+- o funcionário que realizou a maior venda e qual o total desta
+- o funcionário que realizou a maior quantidade de vendas e quantas foram
+- o fornecedor mais utilizado
+- o total de comissão devido a cada funcionário considerando-se 8% de comissão
