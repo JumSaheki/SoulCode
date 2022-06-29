@@ -1,0 +1,12 @@
+Atividade em dupla realizado com Raquel Nunes
+Instalar e configurar:
+- Ambiente Windows Server
+   - AD DS instaldo e configurado
+   - DNS Server
+   - 4 grupos com 5 computadores cada
+   - Users com acessos configurados: login, senha, domínio, pc, grupo e horários
+   
+- Ambiente GNU/Linux:
+   - Firewall bloqueando IPs externos, mas permitindo que a máquina execute o PING
+   - Servidor SQL instalado
+   - Script de backup agendado, com execução diária
