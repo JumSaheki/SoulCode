@@ -1,0 +1,14 @@
+Crie a seguinte estrutura de diretórios no Linux:
+
+> pasta_teste
+    >minha_pasta
+        >meu_nome.txt
+    >meus_testes
+        >teste1.txt
+        >teste2.txt
+        >teste3.txt
+> pasta2
+    >teste.py
+    
+O arquivo meu_nome.txt deve conter lista com 5 nomes
+O arquivo teste.py deve conter script em Python, e deve ter as permissões para rodas via ./
