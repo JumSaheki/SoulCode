@@ -1,0 +1,4 @@
+- Carregue os dois arquivos fornecidos para um banco de dados
+- Leia do banco em blocos de 50 dados, ordenando-os por data
+- Registre em uma tabela própria a média, mediana, moda, desvio padrão, valor máximo e minimo, data de início de data de fim de cada bloco
+- Salvar o banco de dados todos os registros e logs das operações realizadas
