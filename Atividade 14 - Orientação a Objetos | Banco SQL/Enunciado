@@ -1,0 +1,5 @@
+Criação de um código orientado a objetos contendo:
+- Cadastro de produtos, clientes, funcionários e vendas
+- Controle de estoque
+- Rotina de teste, com batches de 500 registros
+- Trigger Function para alimentar tabela de log no Banco de Dados, indicando vendedor e a data de venda
