@@ -1,0 +1,29 @@
+QUESTÃO 1
+--Tabela não normalizada
+
+(inscricao, candidato, data_inscricao, endereco, bairro, cidade, cep, telefone, celular, email, cod_curso, nome_curso, cod_turno, nome_turno, responsavel)
+
+--Normalizando MATRICULA
+
+MATRICULA(inscricao, candidato, data_inscricao, cod_curso, cod_turno, responsavel)
+(endereco, bairro, cidade, cep, telefone, celular, email, cod_curso, nome_curso, cod_turno, nome_turno)
+
+--normalizando ENDERECO
+ENDERECO: (cod_endereco, inscricao, endereco, bairro, cidade, cep)
+(telefone, celular, email, cod_curso, nome_curso, cod_turno, nome_turno)
+
+--Normalizando CONTATO
+CONTATO: (cod_contato, inscricao, telefone, celular, email)
+(cod_curso, nome_curso, cod_turno, nome_turno)
+
+--Normalizando CURSO
+CURSO: (cod_curso, nome_curso)
+
+TURNO: (cod_turno, nome_turno)
+
+RESULTADO:
+MATRICULA(inscricao, candidato, data_inscricao, cod_curso, cod_turno, responsavel)
+ENDERECO: (cod_endereco, inscricao, endereco, bairro, cidade, cep)
+CONTATO: (cod_contato, inscricao, telefone, celular, email)
+CURSO: (cod_curso, nome_curso)
+TURNO: (cod_turno, nome_turno)

@@ -1,0 +1,33 @@
+QUESTÃO 2
+
+--Tabela não normalizada
+(curso, cod_curso, aluno, matricula, status, disciplina, professor, nota, faltas, situacao)
+
+
+--Normalizando curso
+CURSO: (cod_curso, curso)
+(aluno, matricula, status, disciplina, professor, nota, faltas, situacao)
+
+
+--Normalizando matricula
+MATRICULA: (matricula, aluno, status, cod_curso)
+(disciplina, professor, nota, faltas, situacao)
+
+
+--Normalizando disciplina
+DISCIPLINA: (cod_disciplina, disciplina)
+(professor, nota, faltas, situacao)
+
+
+--Normalizando professor
+PROFESSOR: (cod_professor, professor)
+(nota, faltas, situacao)
+
+--Normalizando Aula
+AULA: (cod_aluno, cod_disciplina, cod_professor, nota, situacao)
+
+--RESULTADO
+MATRICULA: (matricula, aluno, status, cod_curso)
+DISCIPLINA: (cod_disciplina, disciplina)
+PROFESSOR: (cod_professor, professor)
+AULA: (cod_aluno, cod_disciplina, cod_professor, nota, situacao)

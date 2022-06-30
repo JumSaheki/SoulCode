@@ -1,0 +1,25 @@
+MATRICULA
+matricula: número de matrícula do aluno, único, gerado automaticamente, chave primária
+aluno: nome do aluno
+status: situação do aluno, classificada em ativou ou inativo
+
+CURSO
+cod_curso: código do curso, único, gerado automaticamente, chave primária
+curso: nome do curso
+matricula: número de matricula do candidato, chave estrangeira
+cod_disciplina: código da disciplina, chave estrangeira
+
+DISCIPLINA  
+cod_disciplina: código da disciplina, único, gerado automaticamente, chave primária
+disciplina: nome da disciplina
+
+PROFESSOR
+cod_professor: código do professor,único, gerado automaticamente, chave primária
+professor: nome do professor
+
+AULA
+nota: nota do aluno
+situacao: situação do aluno, verificado de acordo com a nota
+matricula: matricula do aluno, chave estrangeira
+cod_disciplina: código da disciplina, chave estrangeira
+cod_professor: código do professor, chave estrangeira

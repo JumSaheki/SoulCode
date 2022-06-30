@@ -1,0 +1,28 @@
+MATRICULA
+matricula: matricula do candidato, unico, gerado automaticamente, chave primária
+cod_curso: código do curso, chave estrangeira
+cod_turno: código do turno, chave estrangeira
+candidato: nome do candidato
+responsavel: nome do responsável pelo candidato quando este é menor de idade
+
+CURSO
+cod_curso: código do curso, único, gerado automaticamente, chave primária
+nome: nome do curso
+
+TURNO
+cod_turno: código do turno, único, gerado automaticamente, chave primária
+turno: descrição do turno
+
+CONTATO
+cod_contato: código do contato, único, gerado automaticamente, chave primária
+telefone: número de telefone 
+celular: número de telefone celular 
+email: endereço de email
+
+endereço
+cod_endereco: código de endereço, único, gerado automaticamente, chave primária
+matricula: matricula do candidato, chave estrangeira
+endereco: endereço 
+bairro: bairro
+cidade: cidade
+cep: cep
