@@ -1,0 +1,151 @@
+CREATE TABLE if not exists cliente(
+    cod_cliente serial,
+	nome varchar(50),
+	cpf varchar(20),
+    telefone varchar(15),
+
+    CONSTRAINT cliente_pk PRIMARY KEY (cod_cliente)
+);
+
+CREATE TABLE IF NOT EXISTS funcionario(
+    cod_funcionario serial,
+    nome varchar(50),
+    telefone varchar(15),
+
+    CONSTRAINT funcionario_pk PRIMARY KEY (cod_funcionario)
+);
+
+CREATE TABLE IF NOT EXISTS produto(
+    cod_produto serial,
+    nome varchar(50),
+    tipo varchar(50),
+    preco decimal(10,2),
+    quant_estoque int,
+
+    CONSTRAINT produto_pk PRIMARY KEY (cod_produto)
+);
+
+CREATE TABLE IF NOT EXISTS venda(
+    cod_venda serial,
+    cod_cliente int,
+    cod_produto int,
+    cod_funcionario int,
+    data_venda timestamp,
+    quant_vendida int,
+    valor_tot decimal(10,2),
+    CONSTRAINT venda_pk PRIMARY KEY (cod_venda),
+    CONSTRAINT venda_fk1 FOREIGN KEY (cod_cliente) REFERENCES cliente (cod_cliente),
+    CONSTRAINT venda_fk2 FOREIGN KEY (cod_produto) REFERENCES produto (cod_produto),
+    CONSTRAINT venda_fk3 FOREIGN KEY (cod_funcionario) REFERENCES funcionario (cod_funcionario)
+    
+);
+
+CREATE TABLE IF NOT EXISTS log(
+    cod_log serial,
+    hora timestamp,
+    operacao varchar(15),
+    tabela varchar(15),
+    descricao text,
+    CONSTRAINT log_pk PRIMARY KEY (cod_log)
+);
+
+#avaliar a implantação do controle de estoque por trigger
+
+
+CREATE OR REPLACE FUNCTION log_venda()
+RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'INSERT') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'INSERT', 'venda', 'A linha ' || new.* || ' foi inserida.');
+    RETURN NEW;
+  ELSIF (TG_OP = 'UPDATE') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'UPDATE', 'venda', 'A linha ' || new.cod_venda || ' teve os valores atualizados de ' || old.* || ' para ' || new.* || '.');
+    RETURN NEW;
+  ELSIF (TG_OP = 'DELETE') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'DELETE', 'venda', 'A linha ' || old.* || ' foi excluida.');
+    RETURN OLD;
+  END IF;
+  RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER trigger_log_venda
+  AFTER INSERT OR UPDATE OR DELETE ON venda
+    FOR EACH ROW EXECUTE PROCEDURE  log_venda();
+
+CREATE OR REPLACE FUNCTION log_produto()
+RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'INSERT') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'INSERT', 'produto', 'A linha ' || new.* || ' foi inserida.');
+    RETURN NEW;
+  ELSIF (TG_OP = 'UPDATE') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'UPDATE', 'produto', 'A linha ' || new.cod_produto || ' teve os valores atualizados de ' || old.* || ' para ' || new.* || '.');
+    RETURN NEW;
+  ELSIF (TG_OP = 'DELETE') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'DELETE', 'produto', 'A linha ' || old.* || ' foi excluida.');
+    RETURN OLD;
+  END IF;
+  RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_log_produto
+  AFTER INSERT OR UPDATE OR DELETE ON produto
+    FOR EACH ROW EXECUTE PROCEDURE  log_produto();
+
+CREATE OR REPLACE FUNCTION log_cliente()
+RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'INSERT') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'INSERT', 'cliente', 'A linha ' || new.* || ' foi inserida.');
+    RETURN NEW;
+  ELSIF (TG_OP = 'UPDATE') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'UPDATE', 'cliente', 'A linha ' || new.cod_cliente || ' teve os valores atualizados de ' || old.* || ' para ' || new.* || '.');
+    RETURN NEW;
+  ELSIF (TG_OP = 'DELETE') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'DELETE', 'cliente', 'A linha ' || old.* || ' foi excluida.');
+    RETURN OLD;
+  END IF;
+  RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_log_cliente
+  AFTER INSERT OR UPDATE OR DELETE ON cliente
+    FOR EACH ROW EXECUTE PROCEDURE  log_cliente();
+
+CREATE OR REPLACE FUNCTION log_funcionario()
+RETURNS TRIGGER AS $$
+BEGIN
+  IF (TG_OP = 'INSERT') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'INSERT', 'funcionario', 'A linha ' || new.* || ' foi inserida.');
+    RETURN NEW;
+  ELSIF (TG_OP = 'UPDATE') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'UPDATE', 'funcionario', 'A linha ' || new.cod_funcionario || ' teve os valores atualizados de ' || old.* || ' para ' || new.* || '.');
+    RETURN NEW;
+  ELSIF (TG_OP = 'DELETE') THEN
+    INSERT INTO log(hora, operacao, tabela, descricao)
+    VALUES (current_timestamp, 'DELETE', 'funcionario', 'A linha ' || old.* || ' foi excluida.');
+    RETURN OLD;
+  END IF;
+  RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE TRIGGER trigger_log_funcionario
+  AFTER INSERT OR UPDATE OR DELETE ON funcionario
+    FOR EACH ROW EXECUTE PROCEDURE  log_funcionario();
