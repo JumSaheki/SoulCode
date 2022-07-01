@@ -1,0 +1,21 @@
+Exercício de fixação de Banco de Dados Objeto Relacional
+
+Implementar um Banco de dados conforme as especificações solicitadas e enviar:
+- Comandos DDL
+- 5 inserções
+- 2 atualizações
+- 3 exclusões
+- 5 formas de visualização dos dados de cliente, produtos e pedidos
+
+O sistema possui
+- Cadastro de cliente
+- Cadastro de pedidos
+
+O modelo objeto relacional possui seis entidades:
+- Pessoa
+- Pessoa física
+- Pessoa jurídica
+- Pedidos
+- Pedidos mudança
+- Pedido transCarga
+
