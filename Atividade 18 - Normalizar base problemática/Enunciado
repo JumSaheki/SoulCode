@@ -1,0 +1,8 @@
+- Extraia os dados do arquivo fornecido
+- Faça uma cópia de backup no MongoDB Atlas
+- Extraia as informações do Atlas 
+- Normalize somente python e pandas
+- Não faça drop de nenhuma linha
+- Construa 3 insights
+- Construa gráficos (pandas ou matplotlib)
+- Carregue o dataframe tratado em um banco de dados relacional na GCP
