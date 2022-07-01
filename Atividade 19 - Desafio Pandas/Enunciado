@@ -1,0 +1,13 @@
+Faça ETL na base de dados da Alesp(Assembleia legislativa de São Paulo)
+
+- Uso obrigatório de Pandas
+- Extrair diretamente do site o arquivo XML dos dados de cada deputado
+- Verificar e corrigir inconsistências
+- Verificar e contar valores ausentes
+- Realizar insights sobre os últimos 4 anos
+  - Quais itens tiveram mais despesas
+  - 3 deputados que mais e menos gastaram
+  - 2 insights a escolha do aluno
+- Upload de Dataframe para .CSV para uma bucket da GCP
+- Plotagem dos gráficos
+- Fazer uma pequena apresentação
