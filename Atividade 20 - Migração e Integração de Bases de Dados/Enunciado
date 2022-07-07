@@ -1,0 +1,5 @@
+Uma empresa possui dois sistemas de vendas, um para a matriz e outro para as filiais. A matriz utiliza banco de dados noSQL, as filiais utilizam SQL.
+
+Crie um db noSQL e um db SQL e adicione as amostras fornecidas para simular os sistemas da empresa.
+Faça códigos em Python que leia os dados das filiais, que os corrija, padroniza e insira no db da matriz.
+Faça uma apresentação em slides do desenvolvimento
